@@ -18,3 +18,8 @@ Wentylator jest troche starego typu i obsługuje  nie można od razu włączyć 
 - Singleton, do sumulacji obsługi komunikacji z pojedynczym sprzętem.
 - ???
 - ???
+
+# Kroki zadania
+1. Uzyć singletona do do sumulacji obsługi komunikacji z pojedynczym sprzętem.
+1. Naprawic klase Pilot, by nie tworzyła niepotrzebnie dużej ilości obiektów obsługi sprzętu. 
+1.
