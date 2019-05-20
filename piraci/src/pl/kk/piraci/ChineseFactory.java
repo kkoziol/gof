@@ -35,20 +35,38 @@ public class ChineseFactory {
         return new Toy(toClone.getNazwa());
     }
 
+    public Thing cloneNextItem() {
+        return toClone.clone();
+    }
+
     public static void main(String[] args) {
         ChineseFactory factory = new ChineseFactory();
 
 
-        long start = System.nanoTime();
 
         factory.setProductionLine(new RaceCar());
-        for (int i = 1; i < 5; i++)
-            System.out.println(factory.produceNextItem());
-        factory.setProductionLine(new Bear());
-        for (int i = 1; i < 5; i++)
-            System.out.println(factory.produceNextItem());
-
+        long start = System.nanoTime();
+        for (int i = 1; i <= 10; i++)
+            factory.produceNextItem();
         long duration = System.nanoTime() - start;
-        System.out.println("Produkcja 10 zabawek:" + duration + " srednio na jedą:" + duration / 5);
+        System.out.println("Produkcja  10 RaceCar:" + duration + " srednio na jedą:" + duration / 10);
+        start = System.nanoTime();
+        for (int i = 1; i <= 10; i++)
+            factory.cloneNextItem();
+        duration = System.nanoTime() - start;
+        System.out.println("Klonowanie 10 RaceCar:" + duration + " srednio na jedą:" + duration / 10);
+
+        factory.setProductionLine(new Bear());
+        start = System.nanoTime();
+        for (int i = 1; i <= 10; i++)
+            factory.produceNextItem();
+        duration = System.nanoTime() - start;
+        System.out.println("Produkcja  10 Misiów:" + duration + " srednio na jedą:" + duration / 10);
+        start = System.nanoTime();
+        for (int i = 1; i <= 10; i++)
+            factory.cloneNextItem();
+        duration = System.nanoTime() - start;
+        System.out.println("Klonowanie 10 Misiów:" + duration + " srednio na jedą:" + duration / 10);
+
     }
 }
