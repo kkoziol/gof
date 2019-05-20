@@ -18,34 +18,34 @@ public class Pilot {
     public void kliknijPrzyciskNr(String numer) {
         switch (numer) {
             case "1":
-                new Swiatlo().wlacz();
+                Swiatlo.instance().wlacz();
                 break;
             case "2":
-                new Swiatlo().wylacz();
+                Swiatlo.instance().wylacz();
                 break;
             case "3":
-                new Garaz().drzwiGora();
+                Garaz.instance().drzwiGora();
                 break;
             case "4":
-                new Garaz().drzwiDol();
+                Garaz.instance().drzwiDol();
                 break;
             case "5":
-                new Telewizor().wlacz();
+                Telewizor.instance().wlacz();
                 break;
             case "6":
-                new Telewizor().wylacz();
+                Telewizor.instance().wylacz();
                 break;
             case "7":
-                new Telewizor().glosnoscPlus();
+                Telewizor.instance().glosnoscPlus();
                 break;
             case "8":
-                new Telewizor().glosnoscMinus();
+                Telewizor.instance().glosnoscMinus();
                 break;
             case "9":
-                new Telewizor().kanalPlus();
+                Telewizor.instance().kanalPlus();
                 break;
             case "0":
-                new Telewizor().kanalMinus();
+                Telewizor.instance().kanalMinus();
                 break;
             default:
                 System.out.println("Ale o co cho?");

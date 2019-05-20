@@ -1,10 +1,14 @@
 package pl.kk.pilot.swiatlo;
 
 public final class Swiatlo {
+    private static Swiatlo instance = new Swiatlo();
 
-
-    public Swiatlo() {
+    private Swiatlo() {
         System.out.println("Tworzę sprzęt Swiatlo");
+    };
+
+    public static Swiatlo instance() {
+        return instance;
     }
 
     public void wlacz() {

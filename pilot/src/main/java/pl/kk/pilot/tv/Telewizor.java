@@ -1,6 +1,7 @@
 package pl.kk.pilot.tv;
 
 public final class Telewizor {
+	private static Telewizor instance = new Telewizor();
 
 	private final int MAX_VOLUME = 10;
 	private final int MAX_KANAL = 10;
@@ -8,9 +9,13 @@ public final class Telewizor {
 	private int currentKanal = 1;
 	private int currentVolume = 5;
 
-	public Telewizor() {
+	private Telewizor() {
 		System.out.println("Tworzę sprzęt Telewizor");
 	};
+
+	public static Telewizor instance() {
+		return instance;
+	}
 
 	public void wlacz() {
 		System.out.println("Włączam TV i ustawiam kanal 1");

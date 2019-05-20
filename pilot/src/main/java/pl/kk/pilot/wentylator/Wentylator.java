@@ -2,10 +2,16 @@ package pl.kk.pilot.wentylator;
 
 
 public final class Wentylator {
+    private static Wentylator instance = new Wentylator();
+
 
     private Wentylator() {
         System.out.println("Tworzę sprzęt Wentylator");
     };
+
+    public static Wentylator instance() {
+        return instance;
+    }
 
     public void wlacz() {
         System.out.println("Włączam i ustawiam obroty1");
