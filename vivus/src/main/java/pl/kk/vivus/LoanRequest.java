@@ -1,4 +1,4 @@
-package pl.kk.provident;
+package pl.kk.vivus;
 
 public class LoanRequest {
 
@@ -9,6 +9,10 @@ public class LoanRequest {
 	public LoanRequest(double amount, String purpose) {
 		this.amount = amount;
 		this.purpose = purpose;
+	}
+
+	public LoanRequest(double d, String na_waciki, boolean otherLoans) {
+		this.haveOtherLoans = otherLoans;
 	}
 
 	public double getAmount() {

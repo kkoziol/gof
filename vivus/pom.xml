@@ -7,9 +7,10 @@
         <version>0.1.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>provident</artifactId>
+    <artifactId>vivus</artifactId>
     <packaging>jar</packaging>
 
-    <name>provident</name>
+    <name>vivus</name>
+    <url>https://youtu.be/fYWdnNuTWgo</url>
 
 </project>
