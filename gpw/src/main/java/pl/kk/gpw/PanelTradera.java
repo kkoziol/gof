@@ -16,7 +16,7 @@ public final class PanelTradera {
 	private PanelTradera(ServerDanychGieldowych server) {
 	    server.addObserver(wyswietlaczTikow);
 	    server.addObserver(wyswietlProcentZmiany);
-//		server.addObserver(wyswietlSrednia3Ostatnie);
+		server.addObserver(wyswietlSrednia3Ostatnie);
 	}
 
 	public static void main(String[] args) {
