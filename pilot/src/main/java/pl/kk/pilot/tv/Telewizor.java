@@ -3,14 +3,13 @@ package pl.kk.pilot.tv;
 public final class Telewizor {
 	private static Telewizor instance = new Telewizor();
 
-	private final int MAX_VOLUME = 10;
-	private final int MAX_KANAL = 10;
-
-	private int currentKanal = 1;
-	private int currentVolume = 5;
+	final TelewizorStan WYLACZONY = new TelewizorWylaczony(this);
+	final TelewizorStan WLACZONY = new TelewizorWlaczony(this);
+	private TelewizorStan stan;
 
 	private Telewizor() {
 		System.out.println("Tworzę sprzęt Telewizor");
+		stan = WYLACZONY;
 	};
 
 	public static Telewizor instance() {
@@ -18,44 +17,26 @@ public final class Telewizor {
 	}
 
 	public void wlacz() {
-		System.out.println("Włączam TV i ustawiam kanal 1");
-		currentKanal = 1;
-		currentVolume = 5;
+		stan = stan.wlacz();
 	}
 
 	public void wylacz() {
-		System.out.println("Wyłączam Telewizor");
+		stan = stan.wylacz();
 	}
 
 	public void kanalPlus() {
-		if (currentKanal < MAX_KANAL) {
-			currentKanal++;
-		} else {
-			currentKanal = 1;
-		}
-		System.out.println("Aktualny kanał:" + currentKanal);
+		stan = stan.nextKanal();
 	}
 
 	public void kanalMinus() {
-		if (currentKanal > 1) {
-			currentKanal--;
-		} else {
-			currentKanal = MAX_KANAL;
-		}
-		System.out.println("Aktualny kanał:" + currentKanal);
+		stan = stan.prevKanal();
 	}
 
 	public void glosnoscPlus() {
-		if (currentVolume < MAX_VOLUME) {
-			currentVolume++;
-		}
-		System.out.println("Głośność:" + currentVolume);
+		stan = stan.glosniej();
 	}
 
 	public void glosnoscMinus() {
-		if (currentVolume > 1) {
-			currentVolume--;
-		}
-		System.out.println("Głośność:" + currentVolume);
+		stan = stan.ciszej();
 	}
 }
