@@ -4,7 +4,7 @@ public class CommandMakro implements Command {
 
     private final Command[] commands;
 
-    public CommandMakro(Command[] commands) {
+    public CommandMakro(Command...  commands) {
         this.commands = commands;
     }
 
