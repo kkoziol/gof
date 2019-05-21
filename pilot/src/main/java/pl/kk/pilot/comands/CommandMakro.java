@@ -18,6 +18,7 @@ public class CommandMakro implements Command {
         StringBuilder opis = new StringBuilder("Makro:");
         for (int i = 0; i < commands.length; i++) {
             opis.append(commands[i].getOpis());
+            opis.append(" ");
         }
         return opis.toString();
     }

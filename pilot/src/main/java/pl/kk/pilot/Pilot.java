@@ -48,7 +48,7 @@ public class Pilot {
     private static boolean czyWcisnietoZnakWyjscia(String znak) {
         return !(znak.toUpperCase().equals("Z"));
     }
-ą
+
     public static void main(String[] args) {
         Pilot pilot = new Pilot();
         boolean czyDalej = true;
