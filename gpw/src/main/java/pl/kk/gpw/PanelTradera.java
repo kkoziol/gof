@@ -4,7 +4,7 @@ package pl.kk.gpw;
 public final class PanelTradera {
 
 	private static ServerDanychGieldowych GPW_SERVER = new GpwServer();
-//	private static ServerDanychGieldowych GPW_SERVER_KONTROLA_ABONAMENTU = new GpwServerKontrolaAbonamentu(GPW_SERVER);
+	private static ServerDanychGieldowych GPW_SERVER_KONTROLA_ABONAMENTU = new GpwServerKontrolaAbonamentu(GPW_SERVER);
 //	private static ServerDanychGieldowych GPW_SERVER_RANDOM = new GpwServerGenerator();
 
 	private final WyswietlaczTikow wyswietlaczTikow = new WyswietlaczTikow();
@@ -21,11 +21,11 @@ public final class PanelTradera {
 
 	public static void main(String[] args) {
 
-		new PanelTradera(PanelTradera.GPW_SERVER);
+//		new PanelTradera(PanelTradera.GPW_SERVER);
 //		new PanelTradera(PanelTradera.GPW_SERVER_RANDOM);
 
-//		System.out.println("-------------- z abonamentem");
-//		new PanelTradera(PanelTradera.GPW_SERVER_KONTROLA_ABONAMENTU);
+		System.out.println("-------------- z abonamentem");
+		new PanelTradera(PanelTradera.GPW_SERVER_KONTROLA_ABONAMENTU);
 
 		for (int i = 0; i < ILE_POZYCJI; i++) {
 			PanelTradera.GPW_SERVER.symulujTransakcje();
