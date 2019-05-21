@@ -1,61 +1,54 @@
 package pl.kk.pilot;
 
 
+import pl.kk.pilot.comands.Command;
+import pl.kk.pilot.comands.CommandMakro;
+import pl.kk.pilot.comands.CommandPrzelaczMenu;
+import pl.kk.pilot.comands.CommandZakoncz;
+import pl.kk.pilot.comands.garaz.CommandGarazOtworzDrzwi;
+import pl.kk.pilot.comands.garaz.CommandGarazZamknijDrzwi;
+import pl.kk.pilot.comands.swiatlo.CommandSwiatloWlacz;
+import pl.kk.pilot.comands.swiatlo.CommandSwiatloWylacz;
+import pl.kk.pilot.comands.wentylator.*;
 import pl.kk.pilot.garaz.Garaz;
 import pl.kk.pilot.swiatlo.Swiatlo;
 import pl.kk.pilot.tv.Telewizor;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.util.Map;
+import java.util.TreeMap;
 
 public class Pilot {
 
+    private Map<String, Command> przyciski = new TreeMap<String, Command>();
 
     public Pilot() {
         System.out.println("-----> Rozpoczęcie pracy pilota <-----");
+        przyciski.put("1", new CommandSwiatloWlacz());
+        przyciski.put("2", new CommandSwiatloWylacz());
+        przyciski.put("3", new CommandGarazOtworzDrzwi());
+        przyciski.put("4", new CommandGarazZamknijDrzwi());
+        przyciski.put("5", new CommandWentylatorWlacz());
+        przyciski.put("6", new CommandWentylatorObroty1());
+        przyciski.put("7", new CommandWentylatorObroty2());
+        przyciski.put("8", new CommandWentylatorObroty3());
+        przyciski.put("9", new CommandWentylatorWylacz());
+        przyciski.put("0", new CommandMakro(przyciski.get("1"), przyciski.get("5")));
+        przyciski.put("Z", new CommandZakoncz());
+
+
     }
 
     public void kliknijPrzyciskNr(String numer) {
-        switch (numer) {
-            case "1":
-                Swiatlo.instance().wlacz();
-                break;
-            case "2":
-                Swiatlo.instance().wylacz();
-                break;
-            case "3":
-                Garaz.instance().drzwiGora();
-                break;
-            case "4":
-                Garaz.instance().drzwiDol();
-                break;
-            case "5":
-                Telewizor.instance().wlacz();
-                break;
-            case "6":
-                Telewizor.instance().wylacz();
-                break;
-            case "7":
-                Telewizor.instance().glosnoscPlus();
-                break;
-            case "8":
-                Telewizor.instance().glosnoscMinus();
-                break;
-            case "9":
-                Telewizor.instance().kanalPlus();
-                break;
-            case "0":
-                Telewizor.instance().kanalMinus();
-                break;
-            default:
-                System.out.println("Ale o co cho?");
-        }
+        if (przyciski.get(numer) != null)
+            przyciski.get(numer).execute();
     }
 
     private static boolean czyWcisnietoZnakWyjscia(String znak) {
         return !(znak.toUpperCase().equals("Z"));
     }
-
+ą
     public static void main(String[] args) {
         Pilot pilot = new Pilot();
         boolean czyDalej = true;
@@ -81,16 +74,10 @@ public class Pilot {
     }
 
     private void wyswietlMenu() {
-        System.out.println("1 - Swiatło on");
-        System.out.println("2 - Swiatło off");
-        System.out.println("3 - Garaz2 otwórz");
-        System.out.println("4 - Garaz2 zamknij");
-        System.out.println("5 - Telewizor2 on");
-        System.out.println("6 - Telewizor2 off");
-        System.out.println("7 - Telewizor2 głośniej");
-        System.out.println("8 - Telewizor2 ciszej");
-        System.out.println("9 - Telewizor2 następny kanał");
-        System.out.println("0 - Telewizor2 poprzedni kanał");
+        System.out.println("------>Menu<------");
+        for (Map.Entry<String, Command> entry : przyciski.entrySet()) {
+            System.out.println(entry.getKey() + "-" + entry.getValue().getOpis());
+        }
 
     }
 
