@@ -1,5 +1,5 @@
 package pl.kk.kaczki;
 
 public enum KaczkaTypy {
-	Dzika, Mandarynka
+	Dzika, Mandarynka, Gumowa, Drewniana
 }
