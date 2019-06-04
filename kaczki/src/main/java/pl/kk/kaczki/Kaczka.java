@@ -1,11 +1,6 @@
 package pl.kk.kaczki;
 
-import pl.sternik.kk.kaczki.*;
-import pl.sternik.kk.kaczki.KaczkaTypy;
-import pl.sternik.kk.kaczki.ges.Ges;
-import pl.sternik.kk.kaczki.ges.GesKaczkaAdapter;
 import pl.kk.kaczki.kwakanie.Kwakanie;
-import pl.kk.kaczki.kwakanie.Niemowa;
 import pl.kk.kaczki.latanie.Latanie;
 
 
@@ -81,7 +76,7 @@ public abstract class Kaczka implements Latanie, Kwakanie {
 //			return gumowaKaczka;
 //
 //        case Ges:
-//            return new GesKaczkaAdapter(new Ges(name));
+//            return new GesToKaczkaAdapter(new Ges(name));
 //
 //        default:
 //            return new DzikaKaczka("Dzika domyślna");
