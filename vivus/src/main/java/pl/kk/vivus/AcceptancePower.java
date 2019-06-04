@@ -13,13 +13,18 @@ public abstract class AcceptancePower {
 	}
 
 	public void processRequest(LoanRequest request) {
-		if (request.getAmount() < this.getMaxAllowedAmount()) {
-			System.out.println(this.getRoleName() + " zatwierdza kwotę: " + request.getAmount() + " pożyczki: "
-					+ request.getPurpose());
+		if (request.getAmount() < this.getMaxAllowedAmount() ) {
+			if(request.isHaveOtherLoans()) {
+				request.setHaveOtherLoans(false);
+				successor.processRequest(request);
+			}else {
+				System.out.println(this.getRoleName() + " zatwierdza kwotę: " + request.getAmount() + " pożyczki: "
+						+ request.getPurpose());
+			}
 		} else if (successor != null) {
 			successor.processRequest(request);
 		} else {
-			System.out.println("Kwota za duża! Nie pożyczamy tyle!!");
+			System.out.println("Kwota za duża! Nie pożyczamy tyle!! ("+getRoleName()+")");
 		}
 	}
 }
