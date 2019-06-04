@@ -6,7 +6,7 @@ public class PresidentPower extends AcceptancePower {
     
 	@Override
 	protected double getMaxAllowedAmount() {
-		return 60000;
+		return 50000;
 	}
 
 	@Override

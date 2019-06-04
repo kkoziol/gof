@@ -6,7 +6,7 @@ public class RegionalManagerPower extends AcceptancePower {
     
 	@Override
 	protected double getMaxAllowedAmount() {
-		return 30000;
+		return 10_000;
 	}
 
 	@Override

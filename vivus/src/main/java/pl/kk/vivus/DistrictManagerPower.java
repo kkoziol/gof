@@ -6,7 +6,7 @@ public class DistrictManagerPower extends AcceptancePower {
     
 	@Override
 	protected double getMaxAllowedAmount() {
-		return 2000;
+		return 5000;
 	}
 
 	@Override

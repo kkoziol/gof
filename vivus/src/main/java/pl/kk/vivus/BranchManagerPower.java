@@ -6,7 +6,7 @@ public class BranchManagerPower extends AcceptancePower {
     
 	@Override
 	protected double getMaxAllowedAmount() {
-		return 500;
+		return 1_000;
 	}
 
 	@Override
