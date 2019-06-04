@@ -14,6 +14,7 @@ public abstract class Ekspres {
         napoj = dodajDodatki(napoj);
         //krok4
         nalejDoPojemnika();
+        haczyk();
         return napoj;
     }
 	//Kroki kolejne algorytmu
@@ -24,5 +25,7 @@ public abstract class Ekspres {
     protected abstract Napoj dodajDodatki(Napoj napoj);
 
     protected abstract void nalejDoPojemnika();
+
+    protected void haczyk(){};
 
 }

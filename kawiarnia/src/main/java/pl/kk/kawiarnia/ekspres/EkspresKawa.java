@@ -27,4 +27,9 @@ public class EkspresKawa extends Ekspres {
 	protected Napoj dodajDodatki(Napoj napoj) {
 		return new Mleko(napoj);
 	}
+
+    @Override
+    protected void haczyk() {
+        System.out.println("A tu tfu tfu, harch");
+    }
 }

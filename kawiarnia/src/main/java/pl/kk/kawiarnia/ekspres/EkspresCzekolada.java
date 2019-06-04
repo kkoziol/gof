@@ -23,8 +23,13 @@ public class EkspresCzekolada extends Ekspres {
         System.out.println("Gotuję mleko...");
     }
 
-	@Override
-	protected Napoj dodajDodatki(Napoj napoj) {
-		return new BitaSmietana(napoj);
-	}
+    @Override
+    protected Napoj dodajDodatki(Napoj napoj) {
+        return new BitaSmietana(napoj);
+    }
+
+    @Override
+    protected void haczyk() {
+        System.out.println("A tu tfu tfu, harch");
+    }
 }
