@@ -39,6 +39,10 @@ public class TikGenerator implements Iterable<Tik> {
 		for (Tik tik : generator) {
 			System.out.println(tik);
 		}
+		// Wersja z lambdami...
+		generator.forEach(t -> System.out.println(t));
+        // Wersja z consumerem
+		generator.forEach(System.out::println);
 		
 	}
 }
