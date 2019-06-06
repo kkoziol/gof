@@ -12,6 +12,8 @@ public class LoanRequest {
 	}
 
 	public LoanRequest(double d, String na_waciki, boolean otherLoans) {
+		this.amount = d;
+		this.purpose = na_waciki;
 		this.haveOtherLoans = otherLoans;
 	}
 
